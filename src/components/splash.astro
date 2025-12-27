@@ -1,95 +1,44 @@
 ---
-import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
-// Replace astronaut with education image - you'll need to add this image to your assets
-import educationImage from "~/assets/education-illustration.png";
-import HeroImage from "~/components/hero-image.astro";
-import Starfield from "~/components/starfield.astro";
-import GitHubCorner from "./github-corner.astro";
-
-const widths = [450, 800];
-const sizes = "(min-width: 640px) 42vw, 67vw";
+// Remove all image imports if causing issues
 ---
 
-<section class="relative h-full bg-gradient-to-b from-blue-900 to-black">
-  <Starfield />
-  <GitHubCorner />
-  <div id="splash-bg-fallback" class="absolute inset-0 hidden opacity-40">
-    <HeroImage />
-  </div>
-  <div class="relative grid h-full place-items-center sm:grid-cols-2">
-    <div class="flex flex-col items-center gap-4 self-end sm:self-auto sm:justify-self-end">
-      <Icon name="logomark" class="size-16 text-white md:size-24" />
-      <div class="text-center text-white space-y-4 max-w-lg">
-        <h1 class="text-3xl md:text-4xl font-bold leading-tight">
-          Lahore's Premier Tutor Agency
-        </h1>
-        <div class="text-xl md:text-2xl font-semibold text-blue-200">
-          Matric • O/A Levels • SAT Prep
-        </div>
-        <div class="text-lg md:text-xl font-medium">
-          University Entrance Preparation
-        </div>
-        <p class="text-base md:text-lg text-gray-300 pt-4">
-          Connecting Lahore students with certified tutors for academic success
-        </p>
-        <div class="pt-6">
-          <a 
-            href="#contact" 
-            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 inline-block"
-          >
-            Book Free Consultation
-          </a>
-        </div>
+<section class="relative min-h-screen bg-gray-900">
+  <div class="container mx-auto px-4 py-20">
+    <div class="text-center text-white max-w-3xl mx-auto">
+      
+      <!-- Main Tagline -->
+      <p class="text-xl mb-10 text-gray-300">
+        Connecting Lahore students with certified tutors for Matric, O Levels, A Levels, SAT, and university entrance preparation.
+      </p>
+      
+      <!-- Main Headline -->
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        Lahore's Top Tutor Agency
+      </h1>
+      
+      <!-- Services -->
+      <div class="text-2xl md:text-3xl font-semibold mb-4">
+        Matric • O/A Levels • SAT
       </div>
-    </div>
-    <div
-      id="education-illustration"
-      class="w-2/3 max-w-3xl self-start sm:w-10/12 sm:self-auto sm:justify-self-start"
-    >
-      <Image
-        class="h-full w-full object-contain"
-        src={educationImage}
-        widths={widths}
-        sizes={sizes}
-        loading="eager"
-        alt="Education illustration showing students learning"
-      />
+      
+      <!-- Secondary Service -->
+      <div class="text-xl md:text-2xl font-semibold mb-8">
+        University Entrance Preparation
+      </div>
+      
+      <!-- Features -->
+      <div class="text-lg text-gray-300 mb-12">
+        Home & Online Tutoring Available
+      </div>
+      
+      <!-- Call to Action -->
+      <a 
+        href="#contact" 
+        class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg inline-block"
+      >
+        Book Free Trial Class
+      </a>
+      
     </div>
   </div>
 </section>
-
-<noscript>
-  <style>
-    #splash-bg-fallback {
-      display: block;
-    }
-  </style>
-</noscript>
-
-<style>
-  @keyframes float {
-    0% {
-      transform: translate3d(0, 0, 0);
-    }
-    100% {
-      transform: translate3d(0, 20px, 0);
-    }
-  }
-
-  #education-illustration {
-    animation: float linear 3s infinite alternate;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    #education-illustration {
-      animation: none;
-    }
-    :global(#starfield) {
-      display: none;
-    }
-    #splash-bg-fallback {
-      display: block;
-    }
-  }
-</style>
